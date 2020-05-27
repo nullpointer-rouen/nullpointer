@@ -1,0 +1,98 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ question.titlequestion }}{% endblock %}
+
+{% block content %}
+
+{% if msgErreur is defined %}
+    <p>{{ msgErreur }}</p>
+{% else %}
+    <blockquote class="blockquote border-bottom pb-2">
+        <h2>{{question.titlequestion }}</h2>
+        {% if app.user == question.user %}
+            <a class="btn btn-sm btn-danger" aria-hidden="true" href="{{ path('suppquestion', {id: question.id}) }}" onclick="return confirm('Êtes-vous sur ?')" >{% trans %}Supprimer{% endtrans %}</a>
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-danger my-2">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <div class="small">
+            {% if question.resolve == true %}
+                <span class="badge badge-success">{% trans %}Résolu{% endtrans %}</span>
+            {% endif %}
+            {% for tag in tags %}
+                <span class="badge badge-dark">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </blockquote>
+
+    <div class="row">
+        <section class="col-8">
+            {{ include('questions/_question.html.twig') }}
+            <p>Answers:</p>
+            {{ include('questions/_answer.html.twig') }}
+            {% if app.user %}
+            {{ include('questions/_answer_form.html.twig') }}
+            {% else %}
+            <div class="alert alert-danger">
+            <p>{% trans %}Vous devez vous connecter pour pouvoir participer{% endtrans %}</p>
+            </div>
+            {% endif %}
+        </section>
+
+        <aside class="col-4">
+            {{ include('questions/_aside.html.twig') }}
+        </aside>  
+    </div>
+{% endif %}
+<div class="mt-5">
+    {{ knp_pagination_render(reponses) }}
+</div>
+{%block javascripts%}
+
+ <script >
+ function Note(element,id,note,idelem){
+     var test=idelem;
+     if(test.includes("-")){
+        test=test.replace('-','');
+     }else{
+         test="-"+test;
+     }
+     classelement=document.getElementById(idelem).className;
+       var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    if(this.responseText.includes("msg")){
+        alert(this.responseText.split(":")[1].replace("}]",""));
+    }else{
+        if(this.responseText.includes("error")){
+                    alert(this.responseText.split(":")[1].replace("}]",""));
+        }else{
+             if(classelement.includes("btn-success")){
+         document.getElementById(idelem).classList.remove("btn-success");
+            document.getElementById(test).disabled=false;
+     }else{
+   document.getElementById(idelem).className+=" btn-success";
+   document.getElementById(test).disabled=true;
+    }
+   notereturn=this.responseText.split(":")[1].replace("}]","");
+   if(element=="question"){
+ idnote="notequestion"+id+"";
+   }
+   if(element=="answer"){
+ idnote="noterep"+id+"";
+   }
+    document.getElementById(idnote).innerHTML=notereturn;
+    }
+    }
+}
+};
+xhttp.open("POST", "/notation", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("element="+element+"&id="+id+"&note="+note+"");
+ }
+
+ </script> 
+
+{% endblock %}
+
+{% endblock %}

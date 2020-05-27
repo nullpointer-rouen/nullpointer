@@ -1,0 +1,16 @@
+
+
+  .top{
+    margin-top: 50;
+    padding: 10px 16px;
+     
+  }
+  body{
+    padding-top: 30 ;
+      
+  }
+
+  #bodyquestion img,
+  #bodyreponse img{
+    max-width: 100%;
+  }

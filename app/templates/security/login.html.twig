@@ -1,0 +1,14 @@
+{% extends 'layout_empty.html.twig' %}
+
+{% block title %}{% trans %}Connexion{% endtrans %}{% endblock %}
+
+{% block content %}
+<div class="mx-auto" style="width: 300px;">
+    <div class="card shadow my-5">
+        <div class="card-body">
+            {{ include('security/_form.html.twig') }}
+        </div>
+    </div>
+    <p class="small text-center">{% trans %}Vous n'avez pas de compte ? {% endtrans %}<a href="{{ path('app_register') }}" class="text-decoration-none">{% trans %}Créer en un{% endtrans %}</a></p>
+</div>
+{% endblock %}

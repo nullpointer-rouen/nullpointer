@@ -1,0 +1,10 @@
+
+<div class="p-2">
+{{ form_start(formResponse) }}
+    {{ form_row(formResponse.bodyreponse, {
+        'attr': {'class': 'form-control'},
+        'label_attr': {'class': 'font-weight-bold'}
+    })}}
+    <input type="submit" class="btn btn-primary" value="{% trans %}Postez votre réponse{% endtrans %}">  
+{{ form_end(formResponse) }}
+</div>

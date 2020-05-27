@@ -1,0 +1,31 @@
+<div class="border-bottom px-2 pb-2">
+    <div class="row">
+        <div class="col-1 d-flex flex-column border-right p-0 m-0">
+            {% if(notequestions[question.id] is defined and notequestions[question.id]==1) %}
+                <button class="btn font-weight-bold btn-success" id="1q{{question.id}}" onclick="Note('question',{{question.id}},'upvote',this.id)"><i class="fa fa-lg fa-angle-up" ></i></button>
+            {% elseif(notequestions[question.id] is defined and notequestions[question.id]==-1) %}
+                <button class="btn font-weight-bold" id="1q{{question.id}}" onclick="Note('question',{{question.id}},'upvote',this.id)" disabled><i class="fa fa-lg fa-angle-up" ></i></button>
+            {% else %}
+                <button class="btn font-weight-bold" id="1q{{question.id}}" onclick="Note('question',{{question.id}},'upvote',this.id)" ><i class="fa fa-lg fa-angle-up" ></i></button>
+            {% endif %}
+            <span class="btn font-weight-bold" id="notequestion{{question.id}}">{{question.notequestion}}</span>
+            {% if(notequestions[question.id] is defined and notequestions[question.id]==1) %}           
+                <button class="btn font-weight-bold " id="-1q{{question.id}}" onclick="Note('question',{{question.id}},'downvote',this.id)" disabled><i class="fa fa-lg fa-angle-down "  ></i></button>
+            {% elseif(notequestions[question.id] is defined and notequestions[question.id]==-1) %}
+                <button class="btn font-weight-bold btn-success" id="-1q{{question.id}}" onclick="Note('question',{{question.id}},'downvote',this.id)"><i class="fa fa-lg fa-angle-down "  ></i></button>
+            {% else %}
+                <button class="btn font-weight-bold" id="-1q{{question.id}}" onclick="Note('question',{{question.id}},'downvote',this.id)"><i class="fa fa-lg fa-angle-down "  ></i></button>
+            {% endif %}
+        </div>
+
+        <div class="col-11 d-flex flex-column" id="bodyquestion">
+            <div class="flex-grow-1">{{ question.bodyquestion |raw}}</div>
+            <div class="">
+                <p class="text-right small text-muted m-0">
+                    {{ question.user.pseudo }}<br>
+                    {{ question.datequestion | date("h:i")}} - {{question.datequestion | date("d/m/Y") }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

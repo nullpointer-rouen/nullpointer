@@ -1,0 +1,27 @@
+<div class="container">
+    <nav class="navbar navbar-expand navbar-light">
+        <div class="container navbar-nav d-inline-flex">
+            <a class="navbar-brand" href="{{ path('app_home') }}">NullPointer</a>
+            {{ render(controller('App\\Controller\\SearchController::viewSearch')) }}
+            {% if app.user %}
+                <a class="btn btn-primary btn-sm mx-1"href="{{ path('add_question') }}">{% trans %}Poser une question{% endtrans %}</a>
+                <a class="btn btn-primary btn-sm mx-1" href="{{ path('user_edit', { id : app.user.id}) }}">{% trans %}Profil{% endtrans %}</a>
+                <a class="btn btn-primary btn-sm mx-1" href="{{ path('app_logout') }}">{% trans %}Déconnexion{% endtrans %}</a>
+                {% for locale in locales %}
+                {% if locale != app.request.locale %}
+                <a class="nav-link mx-1" href="{{ path('change_langue',{'locale': locale})}}"><img src="{{ asset('img/'~locale~'.png') }}" height="20px" width="20px" alt="{{locale}}"></a>
+                {% endif %}
+                {% endfor %}
+            {% else %}
+                <a class="btn btn-primary btn-sm mx-1" href="{{ path('app_login')  }}">{% trans %}Se connecter{% endtrans %}</a>
+                <a class="btn btn-primary btn-sm mx-1" href="{{ path('app_register') }}">{% trans %}S'inscrire{% endtrans %}</a>
+                {% for locale in locales %}
+                {% if locale != app.request.locale %}
+                <a class="nav-link mx-1" href="{{ path('change_langue',{'locale': locale})}}"><img src="{{ asset('img/'~locale~'.png') }}" height="20px" width="20px" alt="{{locale}}"></a>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

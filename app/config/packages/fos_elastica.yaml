@@ -1,0 +1,47 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+fos_elastica:
+    clients:
+        default: { host: '%es_host%', port: '%es_port%' }
+    indexes:
+        app:
+            use_alias: true 
+            settings:
+                    index:
+                        analysis:
+                            analyzer:
+                                search_term_analyzer:
+                                    type: custom
+                                    stopwords: _none_
+                                    filter:
+                                        - standard
+                                        - lowercase
+                                        - asciifolding
+                                        - no_stop
+                                    tokenizer: whitespace
+                                ngram_token_analyzer:
+                                    type: custom
+                                    stopwords: _none_
+                                    filter:
+                                        - standard
+                                        - lowercase
+                                        - asciifolding
+                                        - no_stop
+                                    tokenizer: whitespace
+                            filter:
+                                no_stop:
+                                    type: stop
+                                    stopwords: _none_
+                                                        
+            types:
+                questions:
+                    properties:
+                        titlequestion: {analyzer: ngram_token_analyzer,search_analyzer: search_term_analyzer}                           
+                        bodyquestion: {analyzer: ngram_token_analyzer,search_analyzer: search_term_analyzer}
+                        reponses: {analyzer: ngram_token_analyzer,search_analyzer: search_term_analyzer}
+                        user.pseudo: ~
+                        questiontag: ~
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Question
+                        listener: ~
+                        provider: ~

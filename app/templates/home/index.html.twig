@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{% trans %}Acceuil{% endtrans %}{% endblock %}
+
+{% block content %}
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+<h1>{% trans %}Les meilleures questions{% endtrans %}</h1>
+<div class="btn-group pb-3">
+    <a class="btn btn-sm btn-outline-secondary" href="{{ path('app_home', {tri : 1}) }}">{% trans %}Les plus récent{% endtrans %}</a>
+    <a class="btn btn-sm btn-outline-secondary" href="{{ path('app_home', {tri : 2}) }}">{% trans %}Les plus vus{% endtrans %}</a>
+</div>
+{% for question in questions %}
+    <div class="row border-top">
+        <div class="col-1 text-center border-right d-flex flex-column text-muted">
+            <p class="mb-0">{{ question.notequestion }}</p>
+            <p class="small">{% trans %}votes{% endtrans %}</p>
+            {% set totalResponses = 0 %}
+            {% for reponse in question.reponses %}
+                {% set totalResponses = totalResponses + 1 %}
+            {%endfor%}
+            <p class="mb-0">{{ totalResponses }}</p>
+            <p class="small">{% trans %}réponses{% endtrans %}</p>
+            <p class="small">{{ question.vu }} {% trans %}vues{% endtrans %}</p>
+        </div>
+        <div class="col-11 d-flex flex-column">
+            <div class="flex-grow-1">
+                <a class="text-decoration-none" href="/VoirQuestionReponses/{{question.id}}">{{ question.titlequestion }}</a>
+            </div>
+            <div class="">
+                {% for tag in question.questiontag %}
+                    <span class="badge badge-dark">{{ tag }}</span>
+                {% endfor %}
+                <p class="text-right small text-muted m-0">
+                    {{ question.user.pseudo }}<br>
+                    {{ question.datequestion | date("h:i")}} - {{question.datequestion | date("d/m/Y") }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<div class="mt-5">
+    {{ knp_pagination_render(questions) }}
+</div>
+{% endblock %}

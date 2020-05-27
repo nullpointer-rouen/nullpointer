@@ -1,0 +1,42 @@
+{% for reponse in reponses %}
+<div class="border-bottom p-2">
+    <div class="row">
+        <div class="col-1 d-flex flex-column border-right p-0 m-0">
+       
+{% if(notereponses[reponse.id] is defined and notereponses[reponse.id]==1) %}
+            <button class="btn font-weight-bold btn-success" id="1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'upvote',this.id)"><i class="fa fa-lg fa-angle-up" ></i></button>
+{%elseif notereponses[reponse.id] is defined and(notereponses[reponse.id]==-1)  %}            
+            <button class="btn font-weight-bold" id="1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'upvote',this.id)" disabled><i class="fa fa-lg fa-angle-up" ></i></button>
+{%else%}
+            <button class="btn font-weight-bold" id="1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'upvote',this.id)"><i class="fa fa-lg fa-angle-up" ></i></button>
+
+{%endif%}
+            <span class="btn font-weight-bold" id="noterep{{reponse.id}}">{{reponse.notereponse}}</span>
+{% if notereponses[reponse.id] is defined and(notereponses[reponse.id]==-1) %}           
+            <button class="btn font-weight-bold btn-success" id="-1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'downvote',this.id)" ><i class="fa fa-lg fa-angle-down "  ></i></button>
+{%elseif notereponses[reponse.id] is defined and(notereponses[reponse.id]==1)  %}            
+            <button class="btn font-weight-bold" id="-1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'downvote',this.id)" disabled><i class="fa fa-lg fa-angle-down "  ></i></button>
+{%else%}
+            <button class="btn font-weight-bold" id="-1rep{{reponse.id}}" onclick="Note('answer',{{reponse.id}},'downvote',this.id)" ><i class="fa fa-lg fa-angle-down "  ></i></button>
+
+{% endif%}
+
+            {% if app.user == question.user and question.resolve == false %}
+            <a class="btn font-weight-bold" href="{{ path('valider_reponse', {id: reponse.id}) }}" onclick="return confirm('Êtes-vous sur ?')" ><i class="fa fa-check"></i></a>
+            {% endif %}
+            {% if question.resolve == true and reponse.valide == true %}
+            <a class="btn font-weight-bold btn-outline-success border-0" href="{{ path('valider_reponse', {id: reponse.id}) }}" onclick="return confirm('Êtes-vous sur ?')" ><i class="fa fa-check"></i></a>
+            {% endif %}
+        </div>
+        <div class="col-11 d-flex flex-column" id="bodyquestion">
+            <div class="flex-grow-1">{{ reponse.bodyreponse |raw }}</div>
+            <div class="">
+                <p class="text-right small text-muted m-0">
+                    {{ reponse.user.pseudo }}<br>
+                    {{ reponse.datereponse | date("h:i")}} - {{reponse.datereponse | date("d/m/Y") }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

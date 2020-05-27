@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{ asset('css/styles.css') }}>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block header %}
+{{ include('_topbar.html.twig') }}
+{% endblock %}
+
+{% block body %}
+{{ render(controller('App\\Controller\\SearchController::viewUserSearch')) }}
+{% if app.user %}
+<h1>Hello {{app.user.email}} </h1>
+{% else %}
+<p>Hello inconnu </p>
+{% endif %}
+{% if paginations is defined %}
+{{ dump(paginations )}}
+{% for pagination in paginations %}
+
+        {% set hit = pagination.result.hit %}
+        {% set question = pagination.transformed %}
+        
+        {% if question %}
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+              <a href="/VoirQuestionReponses/{{question.id}}" class="btn border-right font-weight-bold px-3 text-success">{{ question.titlequestion}}</a>
+              </div>
+            <div class="card-body">
+            {{question.bodyquestion}}
+            </div>
+            
+            <div class="card-footer d-flex align-items-center p-0 text-muted small">
+              <a href="#" class="btn border-right font-weight-bold px-3 text-success">+</a>
+              <a href="#" class="btn border-right font-weight-bold px-3 text-warning">-</a>
+              <div class="flex-fill px-3">{{question.user.pseudo}}</div>
+              <div class="flex-fill px-3 text-right">{{question.datequestion | date("h:i")}} - {{question.datequestion | date("d/m/Y")}}</div>
+            </div>
+          </div>                   
+        
+        {% endif %}
+        
+    {% endfor %}
+    
+    
+    {% endif %}
+    <div class="col-md-12">
+        {% if paginations is defined and paginations is empty %}
+            <p class="h3">{{ 'Pas de résultat'|trans }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+{{ include('_footer.html.twig') }}
+{% endblock %}
+
+

@@ -1,0 +1,114 @@
+{% extends 'layout_empty.html.twig' %}
+
+{% block title %}{% trans %}Nouvelle question{% endtrans %}{% endblock %}
+
+{% block content %}
+<div class="card shadow p-3">
+    <form method="POST">
+     {% for message in app.flashes('notice') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <label for="input-title" class="font-weight-bold">{% trans %}Titre{% endtrans %}</label>
+            <p class="small">{% trans %}Soyez précis et imaginez que vous poser la question à quelqu'un{% endtrans %}</p>
+            <input  name="title" id="input-title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="input-body" class="font-weight-bold">{% trans %}Corps{% endtrans %}</label>
+            <p class="small">{% trans %}Donnez toutes les informations pour que quelqu'un puisse répondre{% endtrans %}</p>
+            <textarea name="body" id="input-body" class="form-control" rows="10" required></textarea>
+        </div>
+
+       
+        <div class="form-group" id="tags">
+            <label for="txttag" class="font-weight-bold">{% trans %}Tags{% endtrans %}</label>
+            <p class="small">{% trans %}Ajoutez jusqu'à 5 tags à votre question{% endtrans %}</p>
+            <input type="text"  name="tag[0]" id="txttag" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">{% trans %}Publiez{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block endscript %}
+<script>
+$(document).ready(function() {
+    var c = 1;
+    var tagarray=["1"];
+    tagarray=[];
+    $("#txttag").keypress( event => {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '32') {
+            var newtag=$("#txttag").val().replace(/\s+/g,'');
+            var tagsnum = $("#tags").find($("input")).length;
+            if(tagsnum<=5){
+            if((!tagarray.includes(newtag))&&(newtag!="")){
+            $(`
+            <span id="idtag[${c}]">
+                <input type="text" name="tag[${c}]"  value="${newtag}" size="${newtag.length}">
+                <button class="badge badge-dark" onclick="removetag(${c})">&times;</button>
+            </span>
+            `).insertBefore("#txttag");
+          ++c;  
+            tagarray.push(newtag);
+        
+            
+            }
+        }else{
+             
+            if($("#alert").length==0){
+            $(`<div id="alert" class="alert alert-danger">
+                {% trans %}le nombre de tags maximum est de 5.{% endtrans %}
+            </div>`).insertBefore("#txttag");
+            }
+        }
+         $("#txttag").val("");
+        }
+    });
+    $("#input-title").keypress(function(e){
+        if(e.which==13){
+            return false;
+        }
+    });
+        $("#txttag").keypress(function(e){
+        if(e.which==13){
+            return false;
+        }
+    });
+
+});
+
+function removetag(element) {
+    var id = "idtag[" + element + "]";
+    var child = document.getElementById(id);
+    child.parentNode.removeChild(child);
+    child = document.getElementById("alert");
+    child.parentNode.removeChild(child);
+
+}
+</script>
+/*ce script permet d'inclure l'editeur de text dans le formulaire d'ajout de questions*/
+<script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+<script>
+
+    CKEDITOR.replace('input-body', {
+        filebrowserBrowseUrl : '/elfinder',
+        filebrowserBrowseRouteParameters: [], 
+        removeButtons: '',
+        toolbar: [
+		{ name: "styles", items: ['Bold', 'Italic', 'Underline', '-', 'Link', '-', 'NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Image'] },
+        { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+		]
+        });
+    
+   
+</script>
+{% endblock %}
+
+
+

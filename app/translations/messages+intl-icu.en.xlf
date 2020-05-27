@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="hSRjkWn" resname="la question doit avoir un titre et un corps et un maximum de 5 balises. ps: arrêtez de jouer avec l'application">
+        <source>la question doit avoir un titre et un corps et un maximum de 5 balises. ps: arrêtez de jouer avec l'application</source>
+        <target>The question must have a title, body and a maximum of 5 tags.</target>
+      </trans-unit>
+      <trans-unit id="51KJ8hU" resname="vous ne pouvez pas noter votre reponse">
+        <source>vous ne pouvez pas noter votre reponse</source>
+        <target>You cannot note your own answer.</target>
+      </trans-unit>
+      <trans-unit id="j9tl95J" resname="vous devez avoir ">
+        <source>vous devez avoir </source>
+        <target>You need to have </target>
+      </trans-unit>
+      <trans-unit id="8YaEGPl" resname="vous ne pouvez pas noter votre question">
+        <source>vous ne pouvez pas noter votre question</source>
+        <target>You cannot note your own question.</target>
+      </trans-unit>
+      <trans-unit id="TVL_d.G" resname="vous devez vous connecter pour voter">
+        <source>vous devez vous connecter pour voter</source>
+        <target>You must be logged in to vote.</target>
+      </trans-unit>
+      <trans-unit id="CjdayX5" resname="Reponse non trouvee pour l'id ">
+        <source>Reponse non trouvee pour l'id </source>
+        <target>Answer not found for the id </target>
+      </trans-unit>
+      <trans-unit id="ITjgUoM" resname="la page demandée n'existe pas">
+        <source>la page demandée n'existe pas</source>
+        <target>This page does not exist.</target>
+      </trans-unit>
+      <trans-unit id="TvzJJbo" resname="Utilisateur modifier avec succes!">
+        <source>Utilisateur modifier avec succes!</source>
+        <target>User successfully modified !</target>
+      </trans-unit>
+      <trans-unit id="aV_r27B" resname="Question supprimer avec succes">
+        <source>Question supprimer avec succes</source>
+        <target>Question successfully deleted !</target>
+      </trans-unit>
+      <trans-unit id="nASfwEW" resname="Vous pouvez pas supprimer la question">
+        <source>Vous pouvez pas supprimer la question</source>
+        <target>You cannot delete the question.</target>
+      </trans-unit>
+      <trans-unit id="9tkvpR2" resname="Question existe pas">
+        <source>Question existe pas</source>
+        <target>This question does not exist.</target>
+      </trans-unit>
+      <trans-unit id="PCX0_17" resname="S'inscrire">
+        <source>S'inscrire</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="nJ0pmH0" resname="Vous avez déjà un compte ?">
+        <source>Vous avez déjà un compte ?</source>
+        <target>Already have an account ? </target>
+      </trans-unit>
+      <trans-unit id="CsPSyzA" resname="Se connecter">
+        <source>Se connecter</source>
+        <target>Log In</target>
+      </trans-unit>
+      <trans-unit id="4mfTQ4I" resname="Profil">
+        <source>Profil</source>
+        <target>Profil</target>
+      </trans-unit>
+      <trans-unit id="IumSuye" resname="Editer">
+        <source>Editer</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="HX_hx1Q" resname="Poser une question">
+        <source>Poser une question</source>
+        <target>Ask a question</target>
+      </trans-unit>
+      <trans-unit id="_1_eksG" resname="Déconnexion">
+        <source>Déconnexion</source>
+        <target>Log Out</target>
+      </trans-unit>
+      <trans-unit id="Xl0CFs4" resname="Supprimer">
+        <source>Supprimer</source>
+        <target>Remove</target>
+      </trans-unit>
+      <trans-unit id="xoArgjS" resname="Résolu">
+        <source>Résolu</source>
+        <target>Resolved</target>
+      </trans-unit>
+      <trans-unit id="3X5AMrX" resname="Voir aussi">
+        <source>Voir aussi</source>
+        <target>See Also</target>
+      </trans-unit>
+      <trans-unit id="sSeSfKC" resname="Postez votre réponse">
+        <source>Postez votre réponse</source>
+        <target>Post your answer</target>
+      </trans-unit>
+      <trans-unit id="7kZagBc" resname="Acceuil">
+        <source>Acceuil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="N7q6T_f" resname="Les meilleures questions">
+        <source>Les meilleures questions</source>
+        <target>The best questions</target>
+      </trans-unit>
+      <trans-unit id="j4IO.a8" resname="Les plus récent">
+        <source>Les plus récent</source>
+        <target>Most recent</target>
+      </trans-unit>
+      <trans-unit id="TFRpV8Z" resname="Les plus vus">
+        <source>Les plus vus</source>
+        <target>Most viewed</target>
+      </trans-unit>
+      <trans-unit id="nfYJVI3" resname="votes">
+        <source>votes</source>
+        <target>votes</target>
+      </trans-unit>
+      <trans-unit id="yrO9wYV" resname="réponses">
+        <source>réponses</source>
+        <target>answers</target>
+      </trans-unit>
+      <trans-unit id="BF6PMuO" resname="vues">
+        <source>vues</source>
+        <target>views</target>
+      </trans-unit>
+      <trans-unit id="YdaVBBA" resname="Connexion">
+        <source>Connexion</source>
+        <target>Sign in</target>
+      </trans-unit>
+      <trans-unit id="YbMrFPA" resname="Vous n'avez pas de compte ?">
+        <source>Vous n'avez pas de compte ?</source>
+        <target>You don't have an account ? </target>
+      </trans-unit>
+      <trans-unit id="MQ1Afpe" resname="Créer en un">
+        <source>Créer en un</source>
+        <target>Create one</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id=".5yLjAZ" resname="Mot de passe">
+        <source>Mot de passe</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="cz0cdCZ" resname="Rechercher">
+        <source>Rechercher</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="oStzz1j" resname="Recherche">
+        <source>Recherche</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="S.A2REc" resname="Pas de résultat correspand a votre recherche">
+        <source>Pas de résultat correspand a votre recherche</source>
+        <target>No results match your search</target>
+      </trans-unit>
+      <trans-unit id="ivblP8Q" resname="Pas de résultat">
+        <source>Pas de résultat</source>
+        <target>No results</target>
+      </trans-unit>
+      <trans-unit id="bNhl.LM" resname="Nouvelle question">
+        <source>Nouvelle question</source>
+        <target>New question</target>
+      </trans-unit>
+      <trans-unit id="eOeSABC" resname="Titre">
+        <source>Titre</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="BXvgl73" resname="Soyez précis et imaginez que vous poser la question à quelqu'un">
+        <source>Soyez précis et imaginez que vous poser la question à quelqu'un</source>
+        <target>Be specific and imagine that you are asking someone else</target>
+      </trans-unit>
+      <trans-unit id="6PBkcxI" resname="Corps">
+        <source>Corps</source>
+        <target>Body</target>
+      </trans-unit>
+      <trans-unit id="qyG28mk" resname="Donnez toutes les informations pour que quelqu'un puisse répondre">
+        <source>Donnez toutes les informations pour que quelqu'un puisse répondre</source>
+        <target>Give all the information so that someone can answer</target>
+      </trans-unit>
+      <trans-unit id="EzEnW8U" resname="Tags">
+        <source>Tags</source>
+        <target>Tags</target>
+      </trans-unit>
+      <trans-unit id="2iv5TmB" resname="Ajoutez jusqu'à 5 tags à votre question">
+        <source>Ajoutez jusqu'à 5 tags à votre question</source>
+        <target>Add up to 5 tags to your question</target>
+      </trans-unit>
+      <trans-unit id="8.BZhCX" resname="Publiez">
+        <source>Publiez</source>
+        <target>Publish</target>
+      </trans-unit>
+      <trans-unit id="qmXJun3" resname="le nombre de tags maximum est de 5.">
+        <source>le nombre de tags maximum est de 5.</source>
+        <target>The maximum number of tags is 5.</target>
+      </trans-unit>
+      <trans-unit id="pJY_rAh" resname="Une série de lien">
+        <source>Une série de lien</source>
+        <target>A series of links</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="nziugJj" resname="Nous contacter">
+        <source>Nous contacter</source>
+        <target>Contact us</target>
+      </trans-unit>
+      <trans-unit id="vtxTqxY" resname="On recrute">
+        <source>On recrute</source>
+        <target>We are recruiting</target>
+      </trans-unit>
+      <trans-unit id="4b3QoPr" resname="Une autre série de lien">
+        <source>Une autre série de lien</source>
+        <target>Another series of links</target>
+      </trans-unit>
+      <trans-unit id="kh8kIwK" resname="Encore une série de lien">
+        <source>Encore une série de lien</source>
+        <target>Another series of links</target>
+      </trans-unit>
+      <trans-unit id="mhSnuVl" resname="Une dernière série de lien">
+        <source>Une dernière série de lien</source>
+        <target>One last set of links</target>
+      </trans-unit>
+      <trans-unit id="Ms1GbCS" resname="vous devez avoir 15 pour upvote">
+        <source>vous devez avoir 15 pour upvote</source>
+        <target>You must have a score of at least 15 to upvote.</target>
+      </trans-unit>
+      <trans-unit id="RL3e_ia" resname="vous devez avoir 125 pour downvote">
+        <source>vous devez avoir 125 pour downvote</source>
+        <target>You must have a score of at least 125 to downvote.</target>
+      </trans-unit>
+      <trans-unit id="R70pB1_" resname="Content">
+        <source>Content</source>
+        <target>Contenu</target>
+      </trans-unit>
+      <trans-unit id="zI.Z63_" resname="Welcome!">
+        <source>Welcome!</source>
+        <target>Bienvennu !</target>
+      </trans-unit>
+      <trans-unit id="RLe7uPl" resname="Vous devez vous connecter pour pouvoir participer">
+        <source>Vous devez vous connecter pour pouvoir participer</source>
+        <target>You must log in to participate</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

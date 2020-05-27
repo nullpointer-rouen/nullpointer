@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html class="h-100">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% trans %}Welcome!{% endtrans %}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body class="d-flex flex-column h-100 bg-light">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        {% block endscript %}{% endblock %}
+    </body>
+</html>

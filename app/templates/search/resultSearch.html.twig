@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{% trans %}Recherche{% endtrans %}{% endblock %}
+
+{% block content %}
+
+{% if questions is defined %}
+    {% for question in questions %}
+        {% if question %}
+            <div class="row border-top">
+                <div class="col-1 text-center border-right d-flex flex-column text-muted">
+                    <p class="mb-0">{{ question.notequestion }}</p>
+                    <p class="small">{% trans %}votes{% endtrans %}</p>
+                    {% set totalResponses = 0 %}
+                    {% for reponse in question.reponses %}
+                        {% set totalResponses = totalResponses + 1 %}
+                    {%endfor%}
+                    <p class="mb-0">{{ totalResponses }}</p>
+                    <p class="small">{% trans %}réponses{% endtrans %}</p>
+                    <p class="small">0 vues</p>
+                </div>
+                <div class="col-11 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <a class="text-decoration-none" href="/VoirQuestionReponses/{{question.id}}">{{ question.titlequestion }}</a>
+                    </div>
+                    <div class="">
+                        {% for tag in question.questiontag %}
+                            <span class="badge badge-dark">{{ tag }}</span>
+                        {% endfor %}
+                        <p class="text-right small text-muted m-0">
+                            {{ question.user.pseudo }}<br>
+                            {{ question.datequestion | date("h:i")}} - {{question.datequestion | date("d/m/Y") }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div class="mt-5">
+        {{ knp_pagination_render(questions) }}
+    </div>
+{% endif %}
+
+<div class="col-md-12">
+{% if questions is defined and questions is empty %}
+    <p class="h3">{% trans %}Pas de résultat correspand a votre recherche{% endtrans %}</p>
+{% endif %}
+</div>
+
+{% endblock %}

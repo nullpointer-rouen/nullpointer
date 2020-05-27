@@ -1,0 +1,18 @@
+{% if seeAlso|length > 1%}
+
+<div class="card bg-light mb-4 small">
+  <div class="card-header bg-dark text-light">{% trans %}Voir aussi{% endtrans %}</div>
+  <div class="list-group">
+   
+    {% for see in seeAlso %}
+        {% set hit = see.result.hit %}
+        {% set s = see.transformed %}
+        {% if s and s.id != question.id %}
+            <a class="text-decoration-none" href="/VoirQuestionReponses/{{s.id}}">{{ s.titlequestion }}</a>
+        {% endif %}
+    {% endfor %}
+  
+  </div>
+</div>
+{% else %}
+{% endif %}

@@ -1,0 +1,14 @@
+{{ form_start(formSearch, {
+    'action': path('search'),
+    'method': 'GET',
+    'attr': {'class': 'form-inline flex-grow-1'}
+}) }}
+<div class="input-group input-group-sm">
+    <div class="input-group-prepend">    
+        <button type="submit" class="btn btn-primary">{% trans %}Rechercher{% endtrans %}</button>  
+    </div>
+    {{ form_widget(formSearch.Search, {
+        'attr': {'class': 'form-control form-control-sm flex-fill', 'placeholder': 'Rechercher...'}
+    }) }}
+</div>
+{{ form_end(formSearch) }}
